@@ -1,0 +1,64 @@
+<div *ngIf="admin">
+    <h1>Settings</h1>
+
+    <div class="text-center">
+        <label for="change-avatar" class="label-set-img icon-cloud-computing">
+        <img class="img-circle set-img" #imgAvatar [src]="userData.avatar ? (serverUrl + 'avatar/' + userData.avatar) : 'assets/img/user_none.png'" alt=""> 
+    </label>
+        <input type="file" id='change-avatar' (change)="changeAvatar($event)" style="display: none;">
+        <mat-error *ngIf="imageError.length">{{imageError}}</mat-error>
+    </div>
+
+
+    <form class="settings-form" [formGroup]="settings">
+        <mat-form-field class="input">
+            <input formControlName="firstname" placeholder="First name" matInput required>
+            <mat-error *ngIf="settings.controls.firstname.errors?.required" class="alert alert-danger">
+                First name is required.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input">
+            <input formControlName="lastname" placeholder="Last name" matInput required>
+            <mat-error *ngIf="settings.controls.lastname.errors?.required" class="alert alert-danger">
+                Last name is required.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input">
+            <input formControlName="email" placeholder="Email" matInput required>
+            <mat-error *ngIf="settings.controls.email.errors?.required" class="alert alert-danger">
+                Email is required.
+            </mat-error>
+            <mat-error *ngIf="settings.controls.email.errors?.email" class="alert alert-danger">
+                Email invalid.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input">
+            <input formControlName="age" placeholder="Age" type="number" [min]="1" [max]="100" matInput required>
+            <mat-error *ngIf="settings.controls.age.errors?.range" class="alert alert-danger">
+                Use numbers from 1 to 100.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Class" formControlName='class' required>
+                <mat-option>Class</mat-option>
+                <mat-option *ngFor="let class of classes" [value]="class['_id']">{{ class.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-error *ngIf="settings.controls.class.errors?.required && (settings.controls.class.dirty || settings.controls.class.touched)" class="alert alert-danger">
+            Class required.
+        </mat-error>
+        <div>
+            <button (click)="updateUser(settings)" mat-raised-button color="grey">Save</button>
+        </div>
+    </form>
+</div>
+<div *ngIf="!admin" class="user-view">
+    <img class="img-circle set-img" [src]="userData.avatar ? (serverUrl + 'avatar/' + userData.avatar) : 'assets/img/user_none.png'" alt="">
+    <mat-list>
+        <mat-list-item>First Name </mat-list-item>
+        <mat-list-item>Last Name </mat-list-item>
+        <mat-list-item>Email </mat-list-item>
+        <mat-list-item>Age </mat-list-item>
+        <mat-list-item>Class </mat-list-item>
+    </mat-list>
+</div>

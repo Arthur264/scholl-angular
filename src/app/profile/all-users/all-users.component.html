@@ -1,0 +1,38 @@
+<div>
+  <ul class="nav nav-pills nav-pulls-default pull-left">
+    <li class="active"><a>All User</a></li>
+    <li ><a>Friends</a></li>
+    <!--<li role="presentation"><a href="strip-view.html">STYLE 3</a></li>-->
+    <!--<li role="presentation"><a href="table-view.html">STYLE 4</a></li>-->
+  </ul>
+  <form class="mail-search pull-right">
+    <div class="input-group">
+      <input type="text" placeholder="Search for mail..." class="form-control"> <span class="input-group-btn"> <button type="button" class="btn btn-primary">Search</button> </span> </div>
+  </form>
+</div>
+<div class="user-container" (scroll)="scroll($event)">
+  <mat-card class="user-card text-center" *ngFor="let user of Users">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-chip-list>
+          <mat-chip color="green" selected="true">Online</mat-chip>
+        </mat-chip-list>
+      </mat-card-title>
+    </mat-card-header>
+    <div class="text-center img-block">
+      <div class="plus-user" (click)="addToFriends(user.id)" matTooltip="Add to friends" [class.icon-add]="!friends" [class.icon-cog]="friends"></div>
+      <img class="img-circle user-img" mat-card-image [src]="user.avatar ? (serverUrl + 'avatar/' + user.avatar): 'assets/img/user_none.png'" alt="Photo">
+    </div>
+    <mat-card-content>
+      <h3>
+        {{user.firstname}}
+      </h3>
+      <h3>
+        {{user.lastname}}
+      </h3>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="viewUserProfile(user.id)" class="view-btn" color="primary" mat-button>View Profile</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

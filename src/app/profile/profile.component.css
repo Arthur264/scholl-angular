@@ -1,0 +1,72 @@
+.mat-list,
+.mat-nav-list,
+.mat-selection-list {
+    width: 100%;
+
+}
+
+.mat-list-item-rippl {
+    color: #455358;
+}
+
+a {
+    text-decoration: none;
+}
+
+.users {
+    height: 100vh;
+}
+
+.mat-grid-tile .mat-figure {
+    align-items: flex-start !important;
+}
+.mat-list{
+    align-self:flex-start ;
+}
+.dropdown-toggle{
+    cursor: pointer;
+}
+.open > .dropdown-menu{
+    display: block;
+}
+.outlet {
+    overflow: scroll;
+    background: #F0F4F8;
+    width: 100%;
+    padding: 0 20px 20px 15px; 
+}
+.menu{
+    position: relative;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    padding-top: 20px;
+    max-width: 145px;
+}
+.main-header{
+    margin-bottom: 20px;
+}
+.menu a{
+    color: #2b2323;
+    cursor: pointer;
+    font-family: "Roboto";
+}
+.menu a.active{
+    color: #006147;
+}
+
+.menu a:before{
+    margin-right: 10px;
+}
+.content{
+    display: flex;
+}
+.menu-set{
+    position: absolute;
+    bottom: 10px;
+}
+.user-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}

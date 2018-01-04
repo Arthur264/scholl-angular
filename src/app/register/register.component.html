@@ -1,0 +1,56 @@
+<div class="bg">
+    <div class="container">
+        <form class="register-form" [formGroup]="register" #registerform="ngForm">
+            <h2 class="text-center mat-h1">Sing up</h2>
+            <mat-form-field class="input">
+                <input formControlName="firstname" placeholder="First name" matInput required>
+                <mat-error *ngIf="register.controls.firstname.errors?.required" class="alert alert-danger">
+                    First name is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="input">
+                <input formControlName="lastname" placeholder="Last name" matInput required>
+                <mat-error *ngIf="register.controls.lastname.errors?.required" class="alert alert-danger">
+                    Last name is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="input">
+                <input formControlName="email" placeholder="Email" matInput required>
+                <mat-error *ngIf="register.controls.email.errors?.required" class="alert alert-danger">
+                    Email is required.
+                </mat-error>
+                <mat-error *ngIf="register.controls.email.errors?.email" class="alert alert-danger">
+                    Email invalid.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input">
+                <input formControlName="password" type="password" placeholder="Password" matInput required>
+                <mat-error *ngIf="register.controls.password.errors?.required" class="alert alert-danger">
+                    Password is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="input">
+                <input formControlName='confirmpassword' type="password" placeholder="Confirm password" matInput required>
+                <mat-error *ngIf="register.controls.confirmpassword.errors?.equalTo" class="alert alert-danger">
+                    Passwords do not match.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="Class"  formControlName='class' #option required>
+                    <mat-option>Class</mat-option>
+                    <mat-option *ngFor="let class of classes" [value]="class['_id']">{{ class.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-error *ngIf="register.controls.class.errors?.required && (register.controls.class.dirty || register.controls.class.touched)" class="alert alert-danger">
+                    Class required.
+                </mat-error>
+                <div style="margin-bottom: 20px">
+                    Back to <a routerLink="/login">Sing In</a>
+                </div>
+            <div>
+                <button [disabled]='!registerform.form.valid' mat-raised-button color="grey" (click)="Register(register)">Sing Up</button>
+            </div>
+        </form>
+    </div>
+</div>

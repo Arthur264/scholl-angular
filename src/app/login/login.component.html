@@ -1,0 +1,34 @@
+<div class="bg">
+  <div class="container">
+    <form class="login-form" [formGroup]="login" #loginform="ngForm">
+      <h2 class="text-center mat-h2">Sing In</h2>
+      <mat-error [hidden]="errorMessage.length" [innerHTML]="errorMessage" class="alert text-center alert-danger">
+        </mat-error>
+      <mat-form-field class="input">
+        <input formControlName="email" placeholder="Email" matInput name="email" required>
+        <mat-error *ngIf="login.controls.email.errors?.required" class="alert alert-danger">
+          Email is required.
+        </mat-error>
+        <mat-error *ngIf="login.controls.email.errors?.email" class="alert alert-danger">
+          Email invalid.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <input formControlName="password" type="password" placeholder="Password" matInput name="password" required>
+        <mat-error *ngIf="login.controls.password.errors?.required" class="alert alert-danger">
+          Enter password.
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="grey" (click)="Login(login)">Login</button>
+      </div>
+      <div class="text-center" style="margin-top: 15px;">
+        <p>
+          Don't have an account?
+          <a routerLink="/register">Sing Up</a>
+        </p>
+
+      </div>
+    </form>
+  </div>
+</div>
