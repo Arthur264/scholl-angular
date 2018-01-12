@@ -5131,7 +5131,7 @@ a.thumbnail.active {
   zoom: 1;
 }
 .media-body {
-  width: 10000px;
+  /*width: 10000px;*/
 }
 .media-object {
   display: block;
@@ -5150,7 +5150,7 @@ a.thumbnail.active {
 .media-left,
 .media-right,
 .media-body {
-  display: table-cell;
+  /*display: table-cell;*/
   vertical-align: top;
 }
 .media-middle {

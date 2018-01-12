@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
 @import "assets/css/bootstrap.css";
 @import "assets/css/integral-core.css";
 @import "assets/css/entypo.css";
@@ -20,6 +19,7 @@ h1, h2,h3{
 body {
     font-family: "Roboto";
     font-size: 14px;
+     overflow-y: hidden;
 }
 
 .img-circle {

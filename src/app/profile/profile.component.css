@@ -29,8 +29,11 @@ a {
 .open > .dropdown-menu{
     display: block;
 }
+.ng-star-inserted{
+    max-width: none;
+}
 .outlet {
-    overflow: scroll;
+    /*overflow: hidden;*/
     background: #F0F4F8;
     width: 100%;
     padding: 0 20px 20px 15px; 
@@ -69,4 +72,11 @@ a {
     height: 50px;
     border-radius: 50%;
     margin-bottom: 10px;
+}
+.icon-mail:before{
+    width: auto;
+    margin: 0;
+}
+.friend-list li img{
+    width: 55px;
 }

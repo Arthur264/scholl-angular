@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
             this.appService.post('auth/login', data.value).subscribe(res => {
                 if (res.s) {
                    this.appComponent.saveUser(res);
-                   this.router.navigateByUrl('/profile');
+                   this.router.navigateByUrl('/profile/');
                 }else{
                     this.errorMessage = res.m;
                 }

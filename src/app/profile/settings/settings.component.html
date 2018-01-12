@@ -2,7 +2,7 @@
     <h1>Settings</h1>
 
     <div class="text-center">
-        <label for="change-avatar" class="label-set-img icon-cloud-computing">
+        <label for="change-avatar" class="label-set-img my-icon-cloud-computing">
         <img class="img-circle set-img" #imgAvatar [src]="userData.avatar ? (serverUrl + 'avatar/' + userData.avatar) : 'assets/img/user_none.png'" alt=""> 
     </label>
         <input type="file" id='change-avatar' (change)="changeAvatar($event)" style="display: none;">
@@ -48,17 +48,38 @@
             Class required.
         </mat-error>
         <div>
+            <button (click)="removeUser(settings)" mat-raised-button color="warn">Remove acount</button>
             <button (click)="updateUser(settings)" mat-raised-button color="grey">Save</button>
         </div>
     </form>
 </div>
 <div *ngIf="!admin" class="user-view">
-    <img class="img-circle set-img" [src]="userData.avatar ? (serverUrl + 'avatar/' + userData.avatar) : 'assets/img/user_none.png'" alt="">
+    <div class="text-center">
+        <img class="img-circle set-img" [src]="userData.avatar ? (serverUrl + 'avatar/' + userData.avatar) : 'assets/img/user_none.png'" alt=""></div>
     <mat-list>
-        <mat-list-item>First Name </mat-list-item>
-        <mat-list-item>Last Name </mat-list-item>
-        <mat-list-item>Email </mat-list-item>
-        <mat-list-item>Age </mat-list-item>
-        <mat-list-item>Class </mat-list-item>
+        <mat-list-item>
+            <div> First Name</div>
+            <div>{{userData.firstname}}</div>
+        </mat-list-item>
+        <mat-list-item>
+            <div> Last Name </div>
+            <div>{{userData.lastname}}</div>
+        </mat-list-item>
+        <mat-list-item>
+            <div> Email </div>
+            <div>{{userData.email}}</div>
+        </mat-list-item>
+        <mat-list-item>
+            <div>Age </div>
+            <div>{{userData.age}}</div>
+        </mat-list-item>
+        <mat-list-item>
+            <div> Class</div>
+            <div></div>
+        </mat-list-item>
     </mat-list>
+    <div>
+        <button mat-raised-button color="primary">Send messages</button>
+        <button mat-raised-button color="grey">Add to friends</button>
+    </div>
 </div>

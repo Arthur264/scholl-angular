@@ -12,17 +12,24 @@ export class AppService {
     public hostname: string = 'http://school-artyr264.c9users.io:8081/';
     private token = JSON.parse(localStorage.getItem('token')) || '';
 
-    public get(url) {
+    public get(url, params = {}) {
         const headers = new Headers({'x-access-token': this.token});
-        const options = new RequestOptions({headers: headers});
+        const options = new RequestOptions({headers: headers,params: params});
         return this.http.get(this.hostname + url, options)
             .map((res: Response) => res.json());
     }
+    
 
     public post(url, data) {
         const headers = new Headers({'Content-Type': 'application/json', 'x-access-token': this.token});
         const options = new RequestOptions({headers: headers});
         return this.http.post(this.hostname + url, data, options)
+            .map((res: Response) => res.json());
+    }
+    public delete(url) {
+        const headers = new Headers({'Content-Type': 'application/json', 'x-access-token': this.token});
+        const options = new RequestOptions({headers: headers});
+        return this.http.delete(this.hostname + url, options)
             .map((res: Response) => res.json());
     }
     public put(url, data) {

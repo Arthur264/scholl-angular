@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {AppComponent} from '../../app.component';
 import {ProfileComponent} from '../profile.component';
 import {AppService} from '../../app.service';
+import { ActivatedRoute, Params } from '@angular/router';
 import { CustomValidators } from 'ng2-validation';
 import {UserData, ClassData} from "../../interface";
 import {FormControl, Validators, FormGroup, FormBuilder, NgForm} from '@angular/forms';
@@ -11,19 +12,30 @@ import {FormControl, Validators, FormGroup, FormBuilder, NgForm} from '@angular/
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  constructor(private appComponent: AppComponent, private appService: AppService, private profileComponent: ProfileComponent ) { 
-  }
+  constructor(
+    private appComponent: AppComponent,
+    private appService: AppService,
+    private profileComponent: ProfileComponent,
+    private router: ActivatedRoute 
+    ) {}
   @ViewChild('imgAvatar') imageAvatar:ElementRef;
   public userData: UserData;
   public imageError = '';
   public serverUrl: string;
   public classes: Array<ClassData>;
   public settings: FormGroup;
-  private admin: false;
+  public admin = false;
   ngOnInit() {
+    console.log('jfgh')
     this.classes = this.appComponent.getClassStorage();
     this.serverUrl = this.appComponent.server;
-    if(this.admin){
+    this.router.params.subscribe((params: Params) => {
+      this.CallUserData(params['id']);
+    });
+  }
+  private CallUserData(id){
+    if(!id){
+      this.admin = true;
       this.userData =  this.appComponent.getUserStorage();
       this.settings = new FormGroup({
         firstname:  new FormControl(this.userData.firstname, Validators.required),
@@ -33,9 +45,17 @@ export class SettingsComponent implements OnInit {
         age: new FormControl(this.userData.age || '', CustomValidators.range([1, 100]))
       });
     }else{
-      
+      this.appService.get("user/" + id).subscribe(res => {
+        this.userData = res[0];
+      });
     }
-  
+  }
+  public removeUser(){
+    this.appService.delete("user").subscribe(res => {
+      if(res.s){
+        this.appComponent.removeUser();
+      }
+    })
   }
   public changeAvatar(event){
     this.imageError = '';

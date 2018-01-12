@@ -2,6 +2,7 @@ export interface UserData {
     /**
      * Created by eugene on 12/14/17.
      */
+     _id: string;
     firstname: string;
     lastname: string;
     email: string;
@@ -16,7 +17,7 @@ export interface ClassData {
     /**
      * Created by eugene on 12/14/17.
      */
-    id: string;
+    _id: string;
     name: string;
 
 }

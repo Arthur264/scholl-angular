@@ -11,7 +11,8 @@ import {ClassData, UserData} from '../../interface';
 export class AllClasesComponent implements OnInit {
     console = console;
     public classes: ClassData;
-    public usersClass: Array<UserData>;
+    public usersClass: UserData[] = [];
+    public idClass: string = "";
     constructor(private appService: AppService, private profileComponent: ProfileComponent, private appComponent: AppComponent) {
     }
     public serverUrl: string;
@@ -22,17 +23,16 @@ export class AllClasesComponent implements OnInit {
     private getAllClases() {
         this.appService.get('class').subscribe(data => {
             this.classes = <ClassData>data.clases;
-            this.getUserByClassId(this.classes[0]["_id"]);
+            this.idClass = this.classes[0]["_id"];
         });
     }
 
-    public getUserByClassId(id) {
-        console.log("jdgb")
-        let param: string = 'class/' + id;
-        this.appService.get(param).subscribe(res => {
-            this.usersClass = res.userClass;
-            console.log(this.usersClass)
-        });
-    }
+    // public getUserByClassId(id) {
+    //     let param: string = 'class/' + id;
+    //     this.appService.get(param).subscribe(res => {
+    //         this.usersClass = res.userClass;
+    //         console.log(this.usersClass)
+    //     });
+    // }
 
 }

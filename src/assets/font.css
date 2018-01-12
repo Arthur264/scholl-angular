@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="icon-"]:before, [class*=" icon-"]:before {
+[class^="my-icon-"]:before, [class*=" my-icon-"]:before {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -24,39 +24,39 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-add:before {
+.my-icon-add:before {
   content: "\e909";
 }
-.icon-settings:before {
+.my-icon-settings:before {
   content: "\e901";
 }
-.icon-group .path1:before {
+.my-icon-group .path1:before {
   content: "\e902";
   color: rgb(44, 47, 51);
 }
-.icon-group .path2:before {
+.my-icon-group .path2:before {
   content: "\e903";
   margin-left: -1em;
   color: rgb(44, 47, 51);
 }
-.icon-group .path3:before {
+.my-icon-group .path3:before {
   content: "\e904";
   margin-left: -1em;
   color: rgb(60, 146, 202);
 }
-.icon-exit:before {
+.my-icon-exit:before {
   content: "\e905";
 }
-.icon-user:before {
+.my-icon-user:before {
   content: "\e906";
 }
-.icon-paper-plane:before {
+.my-icon-paper-plane:before {
   content: "\e907";
 }
-.icon-university:before {
+.my-icon-university:before {
   content: "\e908";
 }
-.icon-cloud-computing:before {
+.my-icon-cloud-computing:before {
   content: "\e900";
 }
 

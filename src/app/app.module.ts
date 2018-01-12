@@ -42,6 +42,7 @@ import {
     MatStepperModule,
 } from '@angular/material';
 import {AppService} from "./app.service";
+import {SocketService} from "./socket.service";
 import {ValidationDirective} from './validation.directive';
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 
@@ -111,15 +112,19 @@ export class AllMaterial {
         }, {
             path: 'register',
             component: RegisterComponent
-        },{
-            path: '404', 
-            component: NotFoundComponentComponent
-        },{
-            path: '**',
-            redirectTo: '/404'
-        }])
+        }
+        // ,{
+        //     path: '404', 
+        //     component: NotFoundComponentComponent
+        // }
+        // ,{
+        //     path: '**',
+        //     redirectTo: '/404'
+        // }
+        
+        ])
     ],
-    providers: [AppService],
+    providers: [AppService, SocketService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -827,7 +827,7 @@ ul.user-info {
 	color: #ff0018;
 }
 .notifications.dropdown .dropdown-menu > li .media-list .media-left, .notifications.dropdown .dropdown-menu > li .media-list .media-right, .notifications.dropdown .dropdown-menu > li .media-list .media-body {
-	display: table-cell;
+	/*display: table-cell;*/
 }
 .notifications.dropdown .dropdown-menu > li .media-list .media-left {
 	padding-right: 0;

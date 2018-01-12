@@ -32,11 +32,12 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.classes = this.appComponent.getClassStorage();
+        console.log(this.classes)
     }
     public Register(data) {
         this.appService.post('auth/register', data.value).subscribe(res => {
             this.appComponent.saveUser(res);
-            this.router.navigateByUrl('/profile');
+            this.router.navigateByUrl('/profile/');
         });
     }
 

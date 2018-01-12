@@ -3,4 +3,6 @@
 }
 .class-tab-content{
     padding: 20px;
+    overflow: auto;
+    height: 82vh;
 }
