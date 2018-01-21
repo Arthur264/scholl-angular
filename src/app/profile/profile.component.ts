@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { ClassData, UserData } from '../interface';
 import { AppService } from '../app.service';
+import { SocketService } from '../socket.service';
 
 @Component({
     selector: 'app-profile',
@@ -9,7 +10,7 @@ import { AppService } from '../app.service';
     styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-    constructor(private appComponent: AppComponent, private appService: AppService) {
+    constructor(private appComponent: AppComponent, private appService: AppService, private socketService: SocketService) {
 
     }
     public serverUrl: string;
@@ -28,6 +29,14 @@ export class ProfileComponent implements OnInit {
             console.log(res)
             this.friends = res;
         })
+    }
+    public addToFriends(id) {
+        this.appService.post("friends", { id: id }).subscribe(res => {
+            console.log(res);
+        }); // this.socketService.requestToFriend(id);
+    }
+    private getMessage() {
+
     }
     public LogOut() {
         this.appComponent.removeUser();

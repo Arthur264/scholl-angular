@@ -21,3 +21,12 @@ export interface ClassData {
     name: string;
 
 }
+export interface ChatRoomData {
+    /**
+     * Created by eugene on 12/14/17.
+     */
+    _id: string;
+    action_user_id: string;
+    user: UserData;
+
+}

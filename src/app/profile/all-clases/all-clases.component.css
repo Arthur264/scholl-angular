@@ -6,3 +6,6 @@
     overflow: auto;
     height: 82vh;
 }
+.bs-example .btn, .bs-example-group .btn-group{
+    margin: 2px;
+}

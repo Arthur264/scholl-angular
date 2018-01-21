@@ -1,0 +1,9 @@
+<div class="message-list">
+    <div style="overflow: auto;">
+        <app-message-room-item [avatar]="avatar ? (serverUrl + 'avatar/' + avatar): 'assets/img/user_none.png'" [mes]="mes" *ngFor="let mes of messages"></app-message-room-item>
+    </div>
+</div>
+<form class="message-container">
+    <div class="input-group">
+        <input type="text" placeholder="Enter a message" [(ngModel)]="message" name="message" class="form-control" (keyup)="$event.keyCode == 13 && sendMessage()"> <span class="input-group-btn"> <button type="button" (click)="sendMessage()" class="btn btn-primary">Send</button> </span> </div>
+</form>

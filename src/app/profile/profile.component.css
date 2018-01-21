@@ -20,63 +20,88 @@ a {
 .mat-grid-tile .mat-figure {
     align-items: flex-start !important;
 }
-.mat-list{
-    align-self:flex-start ;
+
+.mat-list {
+    align-self: flex-start;
 }
-.dropdown-toggle{
+
+.dropdown-toggle {
     cursor: pointer;
 }
-.open > .dropdown-menu{
+
+.open>.dropdown-menu {
     display: block;
 }
-.ng-star-inserted{
+
+.ng-star-inserted {
     max-width: none;
 }
+
 .outlet {
     /*overflow: hidden;*/
     background: #F0F4F8;
     width: 100%;
-    padding: 0 20px 20px 15px; 
+    padding: 0 20px 20px 15px;
 }
-.menu{
+
+.menu {
     position: relative;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     padding-top: 20px;
     max-width: 145px;
 }
-.main-header{
+.notifications.dropdown .dropdown-menu li.friend-list-none{
+    padding: 10px 17px;
+}
+.main-header {
     margin-bottom: 20px;
 }
-.menu a{
+
+.menu a {
     color: #2b2323;
     cursor: pointer;
     font-family: "Roboto";
 }
-.menu a.active{
+
+.menu a.active {
     color: #006147;
 }
 
-.menu a:before{
+.menu a:before {
     margin-right: 10px;
 }
-.content{
+
+.content {
     display: flex;
 }
-.menu-set{
+
+.menu-set {
     position: absolute;
     bottom: 10px;
 }
-.user-img{
+
+.user-img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
-.icon-mail:before{
+
+.icon-mail:before {
     width: auto;
     margin: 0;
 }
-.friend-list li img{
-    width: 55px;
+
+.friend-list li img {
+    width: 40px;
+    border-radius: 2px;
+}
+
+.friend-list .unread {
+    display: flex;
+    align-items: center;
+}
+.icon-user-add{
+    cursor: pointer;
 }

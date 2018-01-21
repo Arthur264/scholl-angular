@@ -5,32 +5,37 @@
   width: 100%;
 }
 
-.settings-full-width, .input {
+.settings-full-width,
+.input {
   width: 100%;
 }
 
-.set-img{
+.set-img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   cursor: pointer;
   object-fit: cover;
 }
-.mat-error{
+
+.mat-error {
   margin-bottom: 20px;
 }
-.label-set-img{
+
+.label-set-img {
   width: auto;
   position: relative;
   display: inline-block;
   border-radius: 50%;
   overflow: hidden;
 }
-.label-set-img:hover:before{
+
+.label-set-img:hover:before {
   opacity: 1;
   transform: translate(-50%, -35%);
 }
-.label-set-img:before{
+
+.label-set-img:before {
   position: absolute;
   top: 50%;
   color: #607D8B;
@@ -48,17 +53,55 @@
   transform: translate(-50%, 0);
   font-size: 100px;
 }
+
 .mat-grey {
-    float: right;
-    background-color: #38be99;
-    color: white;
+  float: right;
+  background-color: #38be99;
+  color: white;
 }
-.user-view{
+
+.user-view {
   margin: auto;
   width: 100%;
   max-width: 600px;
 }
-.user-view mat-list mat-list-item{
-  display: flex;
-  justify-content: space-between;
+
+.user-view mat-list mat-list-item {
+  /*display: flex;*/
+  /*justify-content: space-between;*/
+}
+
+.user-view mat-list mat-list-item div {
+  width: 50%;
+}
+
+.mat-list-item-content {
+  width: 100%;
+}
+
+.img-block {
+  position: relative;
+  display: inline-block;
+
+}
+.img-block .set-img{
+  cursor: default;
+}
+.img-block .plus-user {
+  position: absolute;
+  color: #55A8FD;
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: #006147;
+  right: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-block .plus-user:before {
+  font-size: 20px;
 }

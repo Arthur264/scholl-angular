@@ -1,0 +1,7 @@
+<div class="message-item" [class.my]="mes['creator_id'] == user['_id']">
+    <div class="message-item__img" *ngIf="mes['creator_id'] !== user['_id']" ><img [src]="avatar" alt=""></div>
+    <div class="message-item__text">
+        <div class="mes" *ngFor="let mes of mes.message">{{mes}}</div>
+        <!--<span>Zfxhdffdhdf</span>-->
+    </div>
+</div>

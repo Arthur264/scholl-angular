@@ -29,7 +29,7 @@ export class AllUsersComponent implements OnInit {
     }
     public GetAllUser(name) {
         this.appService.get(name).subscribe(res => {
-            // this.Users = res;
+            this.Users = [];
             this.role = name;
             console.log("res",res,"user", this.Users)
         });

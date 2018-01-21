@@ -54,32 +54,35 @@
     </form>
 </div>
 <div *ngIf="!admin" class="user-view">
-    <div class="text-center">
-        <img class="img-circle set-img" [src]="userData.avatar ? (serverUrl + 'avatar/' + userData.avatar) : 'assets/img/user_none.png'" alt=""></div>
+    <div class="text-center ">
+        <div class="img-block">
+            <a class="plus-user icon-user" matTooltip="Friend"></a>
+            <img class="img-circle set-img" [src]="userData.avatar ? (serverUrl + 'avatar/' + userData.avatar) : 'assets/img/user_none.png'" alt=""></div>
+    </div>
     <mat-list>
         <mat-list-item>
-            <div> First Name</div>
+            <div> <strong>First Name</strong></div>
             <div>{{userData.firstname}}</div>
         </mat-list-item>
         <mat-list-item>
-            <div> Last Name </div>
+            <div> <strong>Last Name </strong></div>
             <div>{{userData.lastname}}</div>
         </mat-list-item>
         <mat-list-item>
-            <div> Email </div>
+            <div> <strong>Email</strong> </div>
             <div>{{userData.email}}</div>
         </mat-list-item>
         <mat-list-item>
-            <div>Age </div>
+            <div><strong>Age </strong></div>
             <div>{{userData.age}}</div>
         </mat-list-item>
         <mat-list-item>
-            <div> Class</div>
-            <div></div>
+            <div> <strong>Class</strong></div>
+            <div>{{userData.class.name}}</div>
         </mat-list-item>
     </mat-list>
     <div>
-        <button mat-raised-button color="primary">Send messages</button>
-        <button mat-raised-button color="grey">Add to friends</button>
+        <button mat-raised-button (click)="sendMessage(userData['_id'])" color="primary">Send messages</button>
+        <button mat-raised-button (click)="addToFriends(userData['_id'])" color="grey">Add to friends</button>
     </div>
 </div>

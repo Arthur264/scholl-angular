@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ProfileComponent } from './profile.component';
 import { AllMaterial } from '../app.module';
 import { AppService } from "../app.service";
@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { ScrollBottomDirective } from './scroll-bottom.directive';
 import { MessagesComponent } from './messages/messages.component';
+
+import { MessageRoomComponent } from './message-room/message-room.component';
+import { MessageRoomItemComponent } from './message-room/message-room-host.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -32,6 +35,7 @@ import { MessagesComponent } from './messages/messages.component';
                 {
                     path: 'messages',
                     component: MessagesComponent,
+                    data: { preload: true, delay: true },
                 },
                 {
                     path: ':id',
@@ -45,6 +49,6 @@ import { MessagesComponent } from './messages/messages.component';
         }])
     ],
     providers: [AppService],
-    declarations: [ProfileComponent, AllUsersComponent, AllClasesComponent, SettingsComponent, ScrollBottomDirective, MessagesComponent]
+    declarations: [ProfileComponent, AllUsersComponent, AllClasesComponent, SettingsComponent, ScrollBottomDirective, MessagesComponent, MessageRoomComponent, MessageRoomItemComponent]
 })
 export class ProfileModule {}

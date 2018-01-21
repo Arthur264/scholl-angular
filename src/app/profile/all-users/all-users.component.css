@@ -15,15 +15,15 @@
 }
 
 .mat-card {
-    width: 15%;
-    margin: 15px 10px; 
+    /*width: 15%;*/
+    margin: 15px 0; 
 }
 
-@media screen and (max-width: 1400px) {
-    .mat-card {
-        width: 23%;
-    }
-}
+/*@media screen and (max-width: 1400px) {*/
+/*    .mat-card {*/
+/*        width: 23%;*/
+/*    }*/
+/*}*/
 
 .mat-card-image {
     width: 50%

@@ -10,35 +10,37 @@
   <!--    <input type="text" placeholder="Search for mail..." class="form-control"> <span class="input-group-btn"> <button type="button" (click)="search()" class="btn btn-primary">Search</button> </span> </div>-->
   <!--</form>-->
 </div>
-<div class="cont" appScrollBottom [page]=0 [url]="role" [count]='20' [items]='Users'>
+<div class="cont" appScrollBottom [page]=0 [url]="role" [count]='20' [items]='Users' slimScroll>
   <div class="user-container">
-    <mat-card class="user-card text-center" *ngFor="let user of Users">
-      <mat-card-header>
-        <mat-card-title>
-          <mat-chip-list>
-            <mat-chip color="green" selected="true">Online</mat-chip>
-          </mat-chip-list>
-        </mat-card-title>
-      </mat-card-header>
-      <div class="text-center img-block">
-        <a class="plus-user" (click)="addToFriends(user['_id'])" matTooltip="Add to friends" [class.icon-user-add]="friends" [class.icon-ccw]="!friends"></a>
-        <img class="img-circle user-img" mat-card-image [src]="user.avatar ? (serverUrl + 'avatar/' + user.avatar): 'assets/img/user_none.png'" alt="Photo">
-      </div>
-      <mat-card-content>
-        <h3>
-          {{user.firstname}}
-        </h3>
-        <h3>
-          {{user.lastname}}
-        </h3>
-      </mat-card-content>
-      <mat-card-actions>
-        <button (click)="viewUserProfile(user['_id'])" class="view-btn" color="primary" mat-button>View Profile</button>
-      </mat-card-actions>
-    </mat-card>
+    <div class='col-lg-3 col-md-3 col-sm-4 col-xs-6' *ngFor="let user of Users">
+      <mat-card class="user-card text-center">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-chip-list>
+              <mat-chip color="green" style="opacity: 0" selected="true">Online</mat-chip>
+            </mat-chip-list>
+          </mat-card-title>
+        </mat-card-header>
+        <div class="text-center img-block">
+          <a class="plus-user" (click)="addToFriends(user['_id'])" matTooltip="Add to friends" [class.icon-user-add]="!friends" [class.icon-check]="friends"></a>
+          <img class="img-circle user-img" mat-card-image [src]="user.avatar ? (serverUrl + 'avatar/' + user.avatar): 'assets/img/user_none.png'" alt="Photo">
+        </div>
+        <mat-card-content>
+          <h3>
+            {{user.firstname}}
+          </h3>
+          <h3>
+            {{user.lastname}}
+          </h3>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="viewUserProfile(user['_id'])" class="view-btn" color="primary" mat-button>View Profile</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
   <div class="preload text-center" id="preload">
-    <svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ellipsis"  #preload>
+    <svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ellipsis" #preload>
     <!--circle(cx="16",cy="50",r="10")-->
     <circle cx="84" cy="50" r="0" fill="#c0f6d2">
       <animate attributeName="r" values="11;0;0;0;0" keyTimes="0;0.25;0.5;0.75;1" keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" calcMode="spline" dur="1s" repeatCount="indefinite" begin="0s"></animate>
