@@ -7,6 +7,7 @@ export class SocketService {
     private socket: any;
     constructor() {
         this.socket = io(this.host);
+
     }
     public getMessage() {
         return Observable.create((observer) => {

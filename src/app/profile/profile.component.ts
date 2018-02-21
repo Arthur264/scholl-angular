@@ -26,14 +26,11 @@ export class ProfileComponent implements OnInit {
     }
     public requestFriends() {
         this.appService.get("friends", { reqfriends: true }).subscribe(res => {
-            console.log(res)
             this.friends = res;
         })
     }
     public addToFriends(id) {
-        this.appService.post("friends", { id: id }).subscribe(res => {
-            console.log(res);
-        }); // this.socketService.requestToFriend(id);
+        this.appService.post("friends", { id: id }).subscribe(res => {}); // this.socketService.requestToFriend(id);
     }
     private getMessage() {
 

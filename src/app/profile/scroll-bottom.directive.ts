@@ -13,7 +13,6 @@ export class ScrollBottomDirective implements OnInit, AfterViewInit, OnChanges {
   private preload: any;
 
   ngOnInit() {
-    // this.loadData();
     console.log("directive init")
     this.preload = this.el.nativeElement.querySelector("#preload");
   }
@@ -40,33 +39,15 @@ export class ScrollBottomDirective implements OnInit, AfterViewInit, OnChanges {
     }
   }
   private loadData() {
-    let params = new URLSearchParams();
-    if (this.count) {
-      params.append('count', String(this.count));
-    }
-    if (this.page) {
-      params.append('page', String(this.page));
-    }
-
-    if (this.id) {
-      console.log(this.id)
-      params.append('id', String(this.id));
-    }
+    let params = this.buildParams({ "count": this.count }, { "id": this.id }, { "page": this.page });
     this.appService.get(this.url, params).subscribe(res => {
-      console.log(res, this.push);
       if (res.length) {
         this.page++;
-        if (this.push) {
-          for (let i = 0; i < res.length; i++) {
-            this.items.push(res[i]);
-          }
-        }
-        else {
+        if (!this.push) {
           this.items.splice(0, this.items.length);
-          console.log(res, this.push, this.items);
-          for (let i = 0; i < res.length; i++) {
-            this.items.push(res[i]);
-          }
+        }
+        for (let i = 0; i < res.length; i++) {
+          this.items.push(res[i]);
         }
       }
       else {
@@ -74,5 +55,15 @@ export class ScrollBottomDirective implements OnInit, AfterViewInit, OnChanges {
       }
       this.preload.style.opacity = "0";
     })
+  }
+  private buildParams(...argument) {
+    let params = new URLSearchParams();
+    console.log("params", params)
+    for (let i = 0; i < argument.length; i++) {
+      if (Object.values(argument[i])[0] && Object.values(argument[i])[0].length) {
+        params.append(argument[i], String(argument[i]));
+      }
+    }
+    return params
   }
 }

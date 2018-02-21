@@ -33,7 +33,7 @@ export class MessageRoomComponent implements OnInit, OnChanges {
     this.socketService.getMessage().subscribe((message: any) => {
       message.data.message = [message.data.message];
       this.messages.push(message.data);
-      console.log("1", message)
+      console.log("message", message)
     });
   }
 
